@@ -14,7 +14,9 @@ Para el segundo, el \pArm{} utilizará la electricidad como fuente de energía, 
 
 Finalmente, se pretende hacer que el \pArm{} tenga un coste bajo, permitiendo así el acceso a los recursos y los procesos de fabricación a todo el mundo que pudiera estar interesado y que disponga de la cantidad mínima necesaria para poder poner en funcionamiento el brazo robótico.
 
-Por otra parte, el \pArm{} es dependiente de otro sistema que lo controle, ya que no se plantea como sistema autónomo. Será necesario disponer de un sistema que sea capaz de comunicarse por puerto serie (\ac{USB}) y que permita la ejecución de aplicaciones Python. De ahora en adelante, se denominará ``\ac{S1}'' al equipo que controla al \pArm{}; y ``\ac{S2}'' al brazo robótico en sí.
+Por otra parte, el \pArm{} es dependiente de otro sistema que lo controle, ya que no se plantea como sistema autónomo. Por consiguiente, se proponen diversos métodos de conexión entre el brazo y dicho sistema. Por ejemplo, se puede utilizar el puerto serie (\ac{USB}) o bien comunicaciones inalámbricas, como \textit{Bluetooth} y \textit{WiFi}. Además, debido a su disponibilidad multiplataforma, se propone el uso de Python como aplicación de control. 
+
+De ahora en adelante, se denominará ``\ac{S1}'' al equipo que controla al \pArm{}; y ``\ac{S2}'' al brazo robótico en sí.
 
 Para este proyecto, se ha de desarrollar el \ac{SW} que se ejecutará en el \ac{S1} y tanto el \ac{SW} como el \ac{HW} que irán en el \ac{S2}, así como la estructura del mismo.
 
@@ -22,7 +24,7 @@ Para este proyecto, se ha de desarrollar el \ac{SW} que se ejecutará en el \ac{
 En un principio, el sistema estará dividido en dos módulos:
 
 \subsection*{\ac{S1}}
-El \ac{S1} consiste en un equipo el cual controlará el brazo robótico (\ac{S2}). Para ello, según el planteamiento inicial del proyecto, será necesario que permita la ejecución de aplicaciones Python las cuales tengan \ac{GUI}.
+El \ac{S1} consiste en un equipo el cual controlará el brazo robótico (\ac{S2}). Para ello, tal y como se planteó anteriormente, se propone como lenguaje de programación Python, el cual soporta la ejecución con \ac{GUI}.
 
 En lo referente al sistema operativo, al ser una aplicación en Python la cual es multiplataforma, no se define ninguna restricción respecto al mismo.
 
@@ -38,7 +40,7 @@ En resumen (ver la tabla \ref{tab:s1_requirements}):
         \hline\hline
         Sistema Operativo & Hospedar y ejecutar la aplicación Python que controlará el brazo robótico. & Debe poder ejecutar aplicaciones Python con \ac{GUI}, por ejemplo, \ac{GTK}. \\
         \hline
-        UART (\ac{USB}) & Permitir la comunicación con el sistema \ac{S2} en modo dúplex. & Velocidad adaptable (\textit{baud--rate)}. \\
+        \textit{Conexión con \ac{S2}} & Permitir la comunicación con el sistema \ac{S2} en modo dúplex. & Velocidad adaptable (\textit{baud--rate)} y capacidad para gran ancho de banda. \\
         \hline
         Python & Control del sistema \ac{S2} y monitorización del estado del mismo. & Versión Python $\geqslant$ 3.6.* \\
         \hline
@@ -49,12 +51,12 @@ En resumen (ver la tabla \ref{tab:s1_requirements}):
 
 En principio, no será necesaria la conexión a Internet, pero tampoco se descarta el uso de la misma en el proyecto a la hora de poder recibir actualizaciones o en lo referente a futuras mejoras.
 
-En añadido, pese a que no se restringe, se sugiere que el equipo que hospede la aplicación disponga de un procesador multinúcleo (para realizar el cálculo matricial más rápido) así como suficiente memoria \ac{RAM} para poder manejarlas.
+En añadido, pese a que no se restringe, se sugiere que el equipo que hospede la aplicación disponga de un procesador multinúcleo así como suficiente memoria \ac{RAM} para poder manejarlas.
 
 \subsection*{\ac{S2}}
 Para el sistema \ac{S2} no se ha pensado en ningún microprocesador ni \ac{SoC} en particular, pero se han contemplado algunos que cumplen con las características requeridas (ver la tabla \ref{tab:s2_chips}).
 
-Será necesario que el circuito escogido disponga de entrada serie, UART, para la comunicación con el \ac{S1}. Debido a la característica descrita en la tabla \ref{tab:s1_requirements} sobre la conexión \ac{USB}, no será estrictamente necesario que la velocidad sea adaptable (ya que se asume que se adaptará en el \ac{S1}); sin embargo, sí será requisito fundamental que la conexión sea dúplex.
+Será necesario que el circuito escogido disponga de algún tipo de entrada de las propuestas para la comunicación con el \ac{S1}. Debido a la característica descrita en la tabla \ref{tab:s1_requirements} sobre la interfaz de comunicación, no será estrictamente necesario que la velocidad sea adaptable (ya que se asume que se adaptará en el \ac{S1}); sin embargo, sí será requisito fundamental que la conexión sea dúplex y que soporte gran cantidad de datos con las menores pérdidas posibles.
 
 Por otra parte, el microcontrolador deberá poder modular señales \ac{PWM} para controlar los distintos motores de los que dispondrá el brazo. Sin embargo, en caso de que finalmente el \textit{chip} escogido no disponga de dicha modularización, se podrán usar motores los cuales cuenten con un \textit{driver} que permitan controlarlos usando señales digitales y/o analógicas.
 
@@ -90,7 +92,7 @@ Para que esta interacción sea posible, se desarrollara un panel de control que 
 El \ac{S2} deberá de tener una interfaz con el \ac{HW} tal que se puedan rotar los motores que controlan el movimiento del robot. Por tanto, el microcontrolador que sea elegido para el proyecto final deberá permitir dicho control en base a las características de los motores. Por otro lado, si los motores devuelven su posición, el microcontrolador deberá ser capaz de recibir este dato para poder enviarlo al \ac{S1}.
 
 \subsection{Interfaz de comunicaciones}
-Debido a la naturaleza del proyecto deberá existir una interfaz de comunicaciones que permita el envío y recepción de datos desde el \ac{S1} al \ac{S2} y viceversa. Según lo indicado en el apartado Descripción General (\ref{Descripción general}), esta comunicación se hará a través del estándar UART mediante un conector \ac{USB}. La razón de elegir este estándar de comunicación se debe a que permite una conexión bidireccional simultanea a través del mismo puerto y por tanto permite controlar el robot a la vez que se recibe información referente al estado de este. 
+Debido a la naturaleza del proyecto deberá existir una interfaz de comunicaciones que permita el envío y recepción de datos desde el \ac{S1} al \ac{S2} y viceversa. Según lo indicado en el apartado Descripción General (\ref{Descripción general}), esta comunicación se propone hacer mediante \ac{UART}, \textit{Bluetooth}, \textit{WiFi}, o algún estándar de comunicación que permita una conexión bidireccional simultanea y por tanto permite controlar el robot a la vez que se recibe información referente al estado de este. 
 
 Además con este estándar la comunicación es serie y cumple con las limitaciones de diseño que se han impuesto en la recepción de datos en el \ac{S2}.
 
