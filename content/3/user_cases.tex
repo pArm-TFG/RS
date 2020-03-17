@@ -12,33 +12,35 @@
     \centering
     \begin{tabularx}{\textwidth}{|c|c|X|}
         \cline{1-3}
-        \texttt{0001}                              & \multicolumn{2}{c|}{Encender brazo robótico (S2)}                                                                                                                      \\ \cline{1-3}
+        \texttt{0001}                              & \multicolumn{2}{c|}{Encender brazo robótico (\ac{S2})}                                                                                                                      \\ \cline{1-3}
         \textbf{Descripción}                       & \multicolumn{2}{m{13cm}|}{El usuario deberá se capaz de encender el sistema del brazo robótico de manera independiente de la aplicación de control.}
         \\ \cline{1-3}
-        \multirow{4}{*}{\textbf{Secuencia Normal}} & \textbf{Paso}                                                                                                                                        & \textbf{Acción}
+        \multirow{4}{*}{\textbf{Secuencia Normal}} & \textbf{Paso} & \textbf{Acción}
         \\ \cline{2-3}                    &   1  & El usuario interactúa con el sistema para encenderlo.
         \\ \cline{2-3}                    &   2  & El sistema comprueba que los componentes están correctamente conectados.
         \\ \cline{2-3}                    &   3  & Si las comprobaciones son satisfactorias, el sistema continúa con su normal ejecución.
         \\ \cline{1-3}
         \multirow{2}{*}{\textbf{Excepciones}}      & \textbf{Paso}                                                                                                                                        & \textbf{Acción}
-        \\ \cline{2-3}                    &   3  & Si las comprobaciones no son satisfactorias el sistema activará un indicador luminoso.
+        \\ \cline{2-3}                    &   3  & Si las comprobaciones no son satisfactorias el sistema activará un indicador luminoso y se informará del error a \ac{S1}, si está conectado.
         \\ \cline{1-3}
         \textbf{Importancia}                       & \multicolumn{2}{c|}{1}                                                                                                                                                 \\ \cline{1-3}
         \textbf{Comentarios}                       & \multicolumn{2}{c|}{Sin comentarios}                                                                                                                                   \\ \cline{1-3}
     \end{tabularx}
-    \caption{Caso de uso \texttt{0001} - Encender brazo robótico (S2)}
+    \caption{Caso de uso \texttt{0001} - Encender brazo robótico (\ac{S2})}
+    \label{tab:CU0001}
+    \label{tab:caso_de_uso_encender_brazo_robotico}
 \end{table}
 
 \begin{table}[H]
     \centering
     \begin{tabularx}{\textwidth}{|c|c|X|}
         \cline{1-3}
-        \texttt{0002}                              & \multicolumn{2}{c|}{Apagar brazo robótico(S2)}                                                                                                                      \\ \cline{1-3}
-        \textbf{Descripción}                       & \multicolumn{2}{m{13cm}|}{El usuario deberá ser capaz de apagar la aplicación de control de manera independiente a al brazo robótico.}
+        \texttt{0002}                              & \multicolumn{2}{c|}{Apagar brazo robótico(\ac{S2})}                    \\ \cline{1-3}
+        \textbf{Descripción}                       & \multicolumn{2}{m{13cm}|}{El usuario deberá ser capaz de apagar el brazo robótico de manera independiente a la aplicación de control.}
         \\ \cline{1-3}
-        \multirow{4}{*}{\textbf{Secuencia Normal}} & \textbf{Paso}                                                                                                                                        & \textbf{Acción}
-        \\ \cline{2-3}                    &   1  & El usuario interactúa con el sistema para apagarlo.
-        \\ \cline{2-3}                    &   2  & El sistema se apaga.
+        \multirow{4}{*}{\textbf{Secuencia Normal}} & \textbf{Paso}  & \textbf{Acción}
+        \\ \cline{2-3}                             &   1            & El usuario interactúa con el sistema para apagarlo.
+        \\ \cline{2-3}                             &   2            & El sistema se apaga.
         \\ \cline{1-3}
         \multirow{2}{*}{\textbf{Excepciones}}      & \textbf{Paso}                                                                                                                                        & \textbf{Acción}
         \\ \cline{2-3}                    &     & No existen
@@ -46,7 +48,9 @@
         \textbf{Importancia}                       & \multicolumn{2}{c|}{1}                                                                                                                                                 \\ \cline{1-3}
         \textbf{Comentarios}                       & \multicolumn{2}{c|}{Sin comentarios}                                                                                                                                   \\ \cline{1-3}
     \end{tabularx}
-    \caption{Caso de uso \texttt{0002} - Apagar brazo robótico (S2)}
+    \caption{Caso de uso \texttt{0002} - Apagar brazo robótico (\ac{S2})}
+    \label{tab:CU0002}
+    \label{tab:caso_de_uso_apagar_brazo_robotico}
 \end{table}
 
 \begin{table}[H]
@@ -72,6 +76,8 @@
         \\ \cline{1-3}
     \end{tabularx}
     \caption{Caso de uso \texttt{0003} - Cerrar aplicación}
+    \label{tab:CU0003}
+    \label{tab:caso_de_uso_cerrar_aplicación}
 \end{table}
 
 
@@ -79,7 +85,7 @@
     \centering
     \begin{tabularx}{\textwidth}{|c|c|X|}
         \cline{1-3}
-        \texttt{0004}                              & \multicolumn{2}{c|}{Cambiar modo de funcionamiento (S1)}                                                                                                                      \\ \cline{1-3}
+        \texttt{0004}                              & \multicolumn{2}{c|}{Cambiar modo de funcionamiento (\ac{S1})}                                                                                                                      \\ \cline{1-3}
         \textbf{Descripción}                       & \multicolumn{2}{m{13cm}|}{El usuario deberá ser capaz de seleccionar el modo de control del brazo robótico, pudiendo escoger entre control mediante ratón o control mediante parámetros. }
         \\ \cline{1-3}
         \multirow{4}{*}{\textbf{Secuencia Normal}} & \textbf{Paso}                                                                                                                                        & \textbf{Acción}
@@ -87,18 +93,22 @@
         \\ \cline{2-3}                    &   2  & El sistema cambia entre modo de control mediante ratón o modo de control mediante parámetros.
         \\ \cline{1-3}
         \multirow{2}{*}{\textbf{Excepciones}}      & \textbf{Paso}                                                                                                                                        & \textbf{Acción}
-        \\ \cline{2-3}                    &     & 
+        \\ \cline{2-3}                    &     &  No existen
         \\ \cline{1-3}
         \textbf{Importancia}                       & \multicolumn{2}{c|}{1}                                                                                                                                                 \\ \cline{1-3}
         \textbf{Comentarios}                       & \multicolumn{2}{c|}{Sin comentarios}                                                                                                                                   \\ \cline{1-3}
     \end{tabularx}
     \caption{Caso de uso \texttt{0004} - Cambiar modo de funcionamiento}
+    \label{tab:CU0004}
+    \label{tab:caso_de_uso_cambiar_modo_de_funcionamiento}
 \end{table}
+
+
 \begin{table}[H]
     \centering
     \begin{tabularx}{\textwidth}{|c|c|X|}
         \cline{1-3}
-        \texttt{0005}                              & \multicolumn{2}{c|}{Control usando valores numéricos (S1)}                                                                                                                      \\ \cline{1-3}
+        \texttt{0005}                              & \multicolumn{2}{c|}{Control usando valores numéricos (\ac{S1})}                                                                                                                      \\ \cline{1-3}
         \textbf{Descripción}                       & \multicolumn{2}{m{13cm}|}{El usuario deberá ser capaz de cambiar el valor numérico de cada uno de los parámetros de control del brazo robótico}
         \\ \cline{1-3}
         \multirow{4}{*}{\textbf{Secuencia Normal}} & \textbf{Paso}                                                                                                                                        & \textbf{Acción}
@@ -108,12 +118,14 @@
         \multirow{2}{*}{\textbf{Excepciones}} & \textbf{Paso}  & \textbf{Acción}
         \\ \cline{2-3}                        &   2  & El valor introducido por el usuario no es correcto y por lo tanto no puede llevarse a la práctica.
         \\ \cline{2-3} 
-                                              &  2.1 & Se elimina el valor y se pide notifica al usuario sobre el error y se le pide que introduzca un nuevo valor.
+                                              &  2.1 & Se elimina el valor y se notifica al usuario sobre el error y se le pide que introduzca de nuevo el valor.
         \\ \cline{1-3}
         \textbf{Importancia}                       & \multicolumn{2}{c|}{1}                                                                                                                                                 \\ \cline{1-3}
         \textbf{Comentarios}                       & \multicolumn{2}{c|}{Sin comentarios}                                                                                                                                   \\ \cline{1-3}
     \end{tabularx}
-    \caption{Caso de uso \texttt{0005} - Control usando valores numéricos (S1)}
+    \caption{Caso de uso \texttt{0005} - Control usando valores numéricos (\ac{S1})}
+    \label{tab:CU0005}
+    \label{tab:caso_de_uso_control_usando_valores_numericos}
 \end{table}
 
 \begin{table}[H]
@@ -137,6 +149,8 @@
         \\ \cline{1-3}
     \end{tabularx}
     \caption{Caso de uso \texttt{0006} - Control describiendo trayectorias}
+    \label{tab:CU0006}
+    \label{tab:caso_de_uso_control_describiendo_trayectorias}
 \end{table}
 
 \begin{table}[H]
@@ -153,7 +167,7 @@
         \\ \cline{1-3}
         \multirow{2}{*}{\textbf{Excepciones}} & \textbf{Paso} & \textbf{Acción}
         \\ \cline{2-3}                    &   2   &  La posición no es alcanzable o no se puede llevar a la práctica.
-        \\ \cline{2-3}                    &   2   &  Se notifica el error.
+        \\ \cline{2-3}                    &  2.1  &  Se notifica el error.
         \\ \cline{1-3}
         \textbf{Importancia}                 & \multicolumn{2}{c|}{1}           
         \\ \cline{1-3}
@@ -161,6 +175,8 @@
         \\ \cline{1-3}
     \end{tabularx}
     \caption{Caso de uso \texttt{0007} - Control usando controles gráficos}
+    \label{tab:CU0007}
+    \label{tab:caso_de_uso_control_usando_controles_graficos}
 \end{table}
 
 \begin{table}[H]
@@ -185,6 +201,8 @@
         \\ \cline{1-3}
     \end{tabularx}
     \caption{Caso de uso \texttt{0008} - Control usando ratón}
+    \label{tab:CU0008}
+    \label{tab:caso_de_uso_control_usando_ratón}
 \end{table}
 
 \begin{table}[H]
@@ -197,7 +215,7 @@
         \\ \cline{1-3}
         \multirow{4}{*}{\textbf{Secuencia Normal}} & \textbf{Paso} & \textbf{Acción}
         \\ \cline{2-3}                    &   1  & El usuario interactúa con la aplicación para abrir y cerrar el \textit{end--effector}
-        \\ \cline{2-3}                    &   2  & Se abre o se cierra el \textit{end--effector} según sea necesario. 
+        \\ \cline{2-3}                    &   2  & Se cambia el estado del \textit{end--effector} según sea necesario. 
         \\ \cline{1-3}
         \multirow{2}{*}{\textbf{Excepciones}} & \textbf{Paso} & \textbf{Acción}
         \\ \cline{2-3}                    &      &  No existe
@@ -208,4 +226,58 @@
         \\ \cline{1-3}
     \end{tabularx}
     \caption{Caso de uso \texttt{0009} - Accionar el \textit{end--effector}}
+    \label{tab:CU0009}
+    \label{tab:caso_de_uso_accionar_end_effector}
+\end{table}
+
+\begin{table}[H]
+    \centering
+    \begin{tabularx}{\textwidth}{|c|c|X|}
+        \cline{1-3}
+        \texttt{0010}        & \multicolumn{2}{c|}{Activar modo debug}                                      
+        \\ \cline{1-3}
+        \textbf{Descripción} & \multicolumn{2}{m{13cm}|}{Se permite al usuario activar un modo tal que se pueda mandar al \ac{S2} el código de control del brazo robótico}
+        \\ \cline{1-3}
+        \multirow{4}{*}{\textbf{Secuencia Normal}} & \textbf{Paso} & \textbf{Acción}
+        \\ \cline{2-3}                    &   1  & El usuario interactúa con S2 para ponerlo en modo debug.
+        \\ \cline{2-3}                    &   2  & El sistema comprueba que el cambio de modo se puede hacer de manera segura.
+        \\ \cline{2-3}                    &   3  & El sistema cambia de modo.
+        \\ \cline{1-3}
+        \multirow{2}{*}{\textbf{Excepciones}} & \textbf{Paso} & \textbf{Acción}
+        \\ \cline{2-3}                    &   2  & El sistema detecta que el cambio de modo no se puede hacer de manera segura e impide que este se realice. Se informará del error a \ac{S1}, si está conectado.
+        \\ \cline{1-3}
+        \textbf{Importancia}                 & \multicolumn{2}{c|}{1}           
+        \\ \cline{1-3}
+        \textbf{Comentarios}                 & \multicolumn{2}{c|}{Sin comentarios}
+        \\ \cline{1-3}
+    \end{tabularx}
+    \caption{Caso de uso \texttt{0009} - Accionar el \textit{end--effector}}
+    \label{tab:CU0010}
+    \label{tab:caso_de_uso_activar_modo_debug}
+\end{table}
+
+\begin{table}[H]
+    \centering
+    \begin{tabularx}{\textwidth}{|c|c|X|}
+        \cline{1-3}
+        \texttt{0011}        & \multicolumn{2}{c|}{Desactivar modo debug}                                      
+        \\ \cline{1-3}
+        \textbf{Descripción} & \multicolumn{2}{m{13cm}|}{Se permite al usuario desactivar el modo debug tal que sea posible emplear el sistema de manera normal}
+        \\ \cline{1-3}
+        \multirow{4}{*}{\textbf{Secuencia Normal}} & \textbf{Paso} & \textbf{Acción}
+        \\ \cline{2-3}                    &   1  & El usuario interactúa con \ac{S2} para desactivar el modo debug.
+        \\ \cline{2-3}                    &   2  & El sistema comprueba que el cambio de modo se puede hacer de manera segura.
+        \\ \cline{2-3}                    &   3  & El sistema cambia de modo.
+        \\ \cline{1-3}
+        \multirow{2}{*}{\textbf{Excepciones}} & \textbf{Paso} & \textbf{Acción}
+        \\ \cline{2-3}                    &   2  & El sistema detecta que el cambio de modo no se puede hacer de manera segura e impide que este se realice. Se informara del error a \ac{S1}, si esta conectado.
+        \\ \cline{1-3}
+        \textbf{Importancia}                 & \multicolumn{2}{c|}{1}           
+        \\ \cline{1-3}
+        \textbf{Comentarios}                 & \multicolumn{2}{c|}{Sin comentarios}
+        \\ \cline{1-3}
+    \end{tabularx}
+    \caption{Caso de uso \texttt{0009} - Accionar el \textit{end--effector}}
+    \label{tab:CU0011}
+    \label{tab:caso_de_uso_desactivar_modo_debug}
 \end{table}
